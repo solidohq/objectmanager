@@ -210,6 +210,10 @@ EOT;
 
     protected function getRewrittenClass($class)
     {
+        if ($class[0] != '\\') {
+            $class = '\\'.$class;
+        }
+
         $result = $class;
         while (isset($this->declaredRewrites[$result])) {
             $result = $this->declaredRewrites[$result][0];
