@@ -31,9 +31,9 @@ class RewrittenDemoClass extends DemoClass
 {
     public function getId($param)
     {
-        echo "[rewritten getId()]";
+        echo "[rewritten getId()]\n";
         $result = parent::getId($param);
-        echo "[/rewritten getId()]";
+        echo "[/rewritten getId()]\n";
         return $result;
     }
 }
@@ -87,3 +87,8 @@ var_dump($demoObject->getMessage('Sara'));
 
 var_dump($demoObject->getPow2(4));
 // string '999.999' (length=7)
+
+var_dump($demoObject->getId(9));
+// [rewritten getId()]
+// [/rewritten getId()]
+// int(9)
